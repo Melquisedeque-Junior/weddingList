@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de presentes</title>
+    <!--Style-->
+    <link rel="stylesheet" href="/css/styles.css"/>
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+    <div class="lp-main">
+        <div class="header-general">   
+            <div class="logo">
+                <a href="./index.html">ES</a>
+            </div>
+            <nav class="navigation-general">
+                    <a href="./index.html">HOME</a>
+                    <a href="./historia.html">NOSSA HISTORIA</a>
+                    <a href="./localizacao.html">LOCALIZAÇÃO</a>
+                    <a href="./listadepresentes.html">LISTA DE PRESENTES</a>
+            </nav>
+            <div class="toggle-btn">
+                <i class="bi bi-list fs-solid" style="color: #f2c9e0; font-size:xx-large;"></i>
+            </div>
+            <div class="dropmenu">
+                <a href="./index.html">HOME</a>
+                <a href="./historia.html">NOSSA HISTORIA</a>
+                <a href="./localizacao.html">LOCALIZAÇÃO</a>
+                <a href="./listadepresentes.html">LISTA DE PRESENTES</a>
+            </div>
+        </div>
+        <div class="listap-1">
+            <div class="pix0">
+                <h3 id="pergunta">Porque não temos uma lista de presente convencional?</h3>
+                <p>Não sei se todos já sabem (ou leram sobre a nossa história neste site), mas dentro de 1 ano estaremos nos mudando para a Suécia.</p>
+                <p>Enquanto o Edson está preparando o terreno nas terras nórdicas, a mamãe Sayuri está cuidando da nossa família no Brasil</p>
+                <p>Nossas pequenas estão na mansão Higashi junto com todo o apoio da família Higashi e Dantas no Brasil, assim não faz sentido comprarmos itens para nossa casa, ainda.</p>
+                <p>Assim, para os nossos familiares e amigos que quiserem nos presentear, oferecemos algumas sugestões de valores (abaixo).</p>
+                <p>Para aqueles que quiserem nos presentear com valores acima dos sugeridos, você encontrará o pix para depósito no final da página.</p>
+                <p>Para aqueles que quiserem nos presentear com valores menores que os sugeridos, vamos ver seu nome no depósito e saberemos que você é um mão-de-vaca!</p>
+            </div>    
+        </div>
+        <div class="listap-2">
+            <div class="pix">
+                <h3 id="pergunta">Abaixo você encontra os valores sugeridos (Com QRCode para PIX):</h3>
+                <p>Utilize o app do seu banco para escanear o QRCODE ou baixe o QRCODE e carregue no app do seu banco.</p>
+                <p>Caso deseje depositar outro valor, segue nossos dados:</p> 
+                <div class="chave-pix">             
+                    <p>Chave-PIX: higashi_sayuri@hotmail.com</p>
+                    <p>Portador: Joyce Sayuri Higashi</p>
+                </div>
+            </div>
+            <div class="valores">
+                <h4> R$150,00</h4>
+                <img class="img-qrcode-1" src="../img/150qrcode.png" />
+                <button id="download-1">
+                    <a>Download</a>
+                    <a>QRCODE</a>
+                </button>
+            </div>
+            <div class="valores">
+                <h4> R$300,00</h4>
+                <img class="img-qrcode-2" src="../img/300qrcode.png" />
+                <button id="download-2">
+                    <a>Download</a>
+                    <a>QRCODE</a>
+                </button>
+            </div>
+            <div class="valores">
+                <h4> R$600,00</h4>
+                <img class="img-qrcode-3" src="../img/600qrcode.png" />
+                <button id="download-3">
+                    <a>Download</a>
+                    <a>QRCODE</a>
+                </button>
+            </div>
+            <div class="valores">
+                <h4> R$900,00</h4>
+                <img class="img-qrcode-4" src="../img/900qrcode.png" />
+                <button id="download-4">
+                    <a>Download</a>
+                    <a>QRCODE</a>
+                </button>
+            </div>        
+        </div>
+    </div>
+    <div class="footer">
+        <a href="#">Copyright &#169 2024</a>
+        <a href="#">Designed by: Edson Moreira Dantas Junior</a>
+    </div>
+<!--    <script src="../weedingList/index.js"></script> -->
+    <script src="../node_modules/file-saver/dist/FileSaver.min.js"></script>
+    <script>
+        const activePage = window.location.pathname;
+
+        const navLinks = document.querySelectorAll('nav a').
+        forEach(link => {
+            if(link.href.includes(`${activePage}`)){
+                link.classList.add('active');
+        }});
+
+        const toggleBtn=document.querySelector('.toggle-btn')
+        const toggleBtnIcon=document.querySelector('.toggle-btn i')
+        const dropDownMenu=document.querySelector('.dropmenu')
+
+        toggleBtn.onclick = function () {
+            dropDownMenu.classList.toggle('open')
+            const isOpen = dropDownMenu.classList.contains('open')
+
+            toggleBtnIcon.classList = isOpen
+            ? 'bi bi-x-lg'
+            : 'bi bi-list fs-solid'
+        }
+
+        let qrCodeBtn1 = document.querySelector('#download-1')
+        let img1 = document.querySelector('.img-qrcode-1')
+        let qrCodeBtn2 = document.querySelector('#download-2')
+        let img2 = document.querySelector('.img-qrcode-2')
+        let qrCodeBtn3 = document.querySelector('#download-3')
+        let img3 = document.querySelector('.img-qrcode-3')
+        let qrCodeBtn4 = document.querySelector('#download-4')
+        let img4 = document.querySelector('.img-qrcode-4')
+        console.log(qrCodeBtn1)
+        console.log(img1)
+        console.log(qrCodeBtn2)
+        console.log(img2)
+        console.log(qrCodeBtn3)
+        console.log(img3)
+        console.log(qrCodeBtn4)
+        console.log(img4)
+
+        qrCodeBtn1.addEventListener('click', () =>{
+            let imgPath1 = img1.getAttribute('src');  
+            let fileName = getFileName(imgPath1);
+            console.log(fileName);
+
+            saveAs(imgPath1, fileName);
+        });
+
+        qrCodeBtn2.addEventListener('click', () =>{
+            let imgPath2 = img2.getAttribute('src');  
+            let fileName = getFileName(imgPath2);
+            console.log(fileName);
+
+            saveAs(imgPath2, fileName);
+        });
+
+        qrCodeBtn3.addEventListener('click', () =>{
+            let imgPath3 = img3.getAttribute('src');  
+            let fileName = getFileName(imgPath3);
+            console.log(fileName);
+
+            saveAs(imgPath3, fileName);
+        });
+
+        qrCodeBtn4.addEventListener('click', () =>{
+            let imgPath4 = img4.getAttribute('src');  
+            let fileName = getFileName(imgPath4);
+            console.log(fileName);
+
+            saveAs(imgPath4, fileName);
+        });
+
+        function getFileName(str){
+            return str.substring(str.lastIndexOf('/')+1);
+        }
+    </script>
+</body>
+</html>
